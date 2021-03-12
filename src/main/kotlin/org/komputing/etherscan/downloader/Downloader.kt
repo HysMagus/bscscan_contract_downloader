@@ -52,7 +52,7 @@ private suspend fun processContract(address: Address) {
 
     contractPath.mkdirs()
     val url =
-        "https://api.etherscan.io/api?module=contract&action=getsourcecode&address=$address&apikey=$ETHERSCAN_API_TOKEN"
+        "https://api.bscscan.com/api?module=contract&action=getsourcecode&address=$address&apikey=$BSCSCAN_API_TOKEN"
     Fuel.get(url).timeout(1000).responseObject<CodeGetResultEnvelope> { _, _, result ->
         when (result) {
             is Result.Failure -> {
